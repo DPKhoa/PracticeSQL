@@ -1,0 +1,26 @@
+Mã độc giả: 2 ( Trẻ em ) Mã đocgia_nguoilon :1  TREEM
+Mã độc giả :1 đang mượn 6 cuốn
+Đăng ký mã độc giả :1
+
+
+QD-4:Một độc giả người lớn cùng 1 lúc chỉ được mượn tối đa 5 quyển sách thuộc 
+5 đầu sách khác nhau.
+QĐ-5: Một độc giả trẻ em cùng lúc chỉ được mượn 1 quyển sách.
+QĐ-6: Nếu độc giả người lớn có bảo lãnh trẻ em thì số sách của trẻ em đang mượn 
+sẽ được tính vào số lượng sách đang mượn của độc giả người lớn này. 
+
+
+CUốn chưa được mượn là isbn 1 Ma_CuonSach 3
+
+BEGIN TRANSACTION;
+UPDATE ECONOMICS_MARKS
+SET ECONOMICS_MARKS.ECO_MARKS = 80
+FROM ECONOMICS_MARKS E, COMMERCE_MARKS C
+WHERE E.ID = C.ID
+AND E.ID = 1;
+UPDATE COMMERCE_MARKS
+SET COMMERCE_MARKS.COM_MARKS = 75
+FROM ECONOMICS_MARKS E, COMMERCE_MARKS C
+WHERE E.ID = C.ID
+AND C.ID = 1;
+COMMIT;
